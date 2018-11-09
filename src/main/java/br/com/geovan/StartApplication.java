@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.geovan.home;
+package br.com.geovan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
