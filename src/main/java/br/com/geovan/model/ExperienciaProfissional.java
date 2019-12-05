@@ -21,6 +21,7 @@ public class ExperienciaProfissional
 	private Long id;
 	private String nomeEmpresa;
 	private String descricaoEmpresa;
+	private String cargo;
 	private Date dataInicio;
 	private Date dataFim;
 	private String descricaoExperiencia;
@@ -34,7 +35,7 @@ public class ExperienciaProfissional
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ExperienciaProfissional(Long id, String nomeEmpresa, String descricaoEmpresa, Date dataInicio, Date dataFim, String descricaoExperiencia)
+	public ExperienciaProfissional(Long id, String nomeEmpresa, String descricaoEmpresa, Date dataInicio, Date dataFim, String descricaoExperiencia, String cargo)
 	{
 		super();
 		this.id = id;
@@ -43,6 +44,7 @@ public class ExperienciaProfissional
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
 		this.descricaoExperiencia = descricaoExperiencia;
+		this.cargo = cargo;
 	}
 	/**
 	 * @return the id
@@ -127,5 +129,13 @@ public class ExperienciaProfissional
 	public void setDescricaoExperiencia(String descricaoExperiencia)
 	{
 		this.descricaoExperiencia = descricaoExperiencia;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
 	}
 }

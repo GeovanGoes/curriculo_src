@@ -16,6 +16,8 @@ import br.com.geovan.model.TipoHabilidade;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,31 +42,24 @@ public class AdminService
 		String email = "geovansilvagoes@gmail.com";
 		String cargo = "Desenvolvedor";
 		List<Formacao> formacaoAcademica = new ArrayList<Formacao>();
-		formacaoAcademica.add(new Formacao(1L, "SENAC", "", true, "2015", new TipoFormacao(1L, "Academica")));
+		//formacaoAcademica.add(new Formacao(1L, "SENAC", "", true, "2015", new TipoFormacao(1L, "Academica")));
 		
 		List<Habilidade> habilidades = new ArrayList<>();
 		habilidades.add(new Habilidade(1L, new TipoHabilidade(1L, ""), "SQL", "Básico"));
 		
 		List<ExperienciaProfissional> trajetoriaProfissional = new ArrayList<>();
-		trajetoriaProfissional.add(new ExperienciaProfissional(1L, "GoPoints", "", new Date(), new Date(), "Desenv."));
+		//trajetoriaProfissional.add(new ExperienciaProfissional(1L, "GoPoints", "", new Date(), new Date(), "Desenv."));
 		
 		List<AtividadeAcademica> atividadesAcademicas = new ArrayList<AtividadeAcademica>();
 		atividadesAcademicas.add(new AtividadeAcademica(1L, "Sistema de cadastro de pessoas", "Desenvolvido apenas para estudo", "esse projeto foi legal."));
 		
-		Curriculo curriculo = new Curriculo(
-				id, 
-				nome, 
-				endereco, 
-				dataNascimento, 
-				numeroCelular, 
-				email, 
-				cargo, 
-				formacaoAcademica,
-				habilidades, 
-				trajetoriaProfissional, 
-				atividadesAcademicas);
+		Curriculo curriculo = new Curriculo();
 		
 		
 		curriculoRepository.save(curriculo);
+	}
+	
+	private Set<?> toSet(List<?> list) {
+		return list.stream().collect(Collectors.toSet());
 	}
 }

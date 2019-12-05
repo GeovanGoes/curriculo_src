@@ -20,6 +20,7 @@ public class Formacao
 	private Long id;
 	private String nomeInstituicao;
 	private String descricaoInstituicao;
+	private String nomeCurso;
 	private boolean isConcluido;
 	private String anoConlusao;
 	@ManyToOne
@@ -35,7 +36,7 @@ public class Formacao
 		// TODO Auto-generated constructor stub
 	}
 
-	public Formacao(Long id, String nomeInstituicao, String descricaoInstituicao, boolean isConcluido, String anoConlusao, TipoFormacao tipoFormacao)
+	public Formacao(Long id, String nomeInstituicao, String descricaoInstituicao, boolean isConcluido, String anoConlusao, TipoFormacao tipoFormacao, String nomeCurso)
 	{
 		super();
 		this.id = id;
@@ -44,6 +45,7 @@ public class Formacao
 		this.isConcluido = isConcluido;
 		this.anoConlusao = anoConlusao;
 		this.tipoFormacao = tipoFormacao;
+		this.nomeCurso = nomeCurso;
 	}
 
 	
@@ -134,5 +136,13 @@ public class Formacao
 	public void setAnoConlusao(String anoConlusao)
 	{
 		this.anoConlusao = anoConlusao;
+	}
+
+	public String getNomeCurso() {
+		return nomeCurso;
+	}
+
+	public void setNomeCurso(String nomeCurso) {
+		this.nomeCurso = nomeCurso;
 	}
 }

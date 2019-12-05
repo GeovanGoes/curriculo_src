@@ -4,11 +4,12 @@
 package br.com.geovan.model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -32,23 +33,25 @@ public class Curriculo
 	private String cargo;
 	
 	@OneToMany
-	private List<Formacao> formacao;
+	@JoinColumn(name = "curriculo_id")
+	private Set<Formacao> formacao;
 	
 	@OneToMany
-	private List<Habilidade> habilidades;
+	@JoinColumn(name = "curriculo_id")
+	private Set<Habilidade> habilidades;
 	
 	@OneToMany
-	private List<ExperienciaProfissional> trajetoriaProfissional;
+	@JoinColumn(name = "curriculo_id")
+	private Set<ExperienciaProfissional> trajetoriaProfissional;
 	
 	@OneToMany
-	private List<AtividadeAcademica> atividadesAcademicas;
+	@JoinColumn(name = "curriculo_id")
+	private Set<AtividadeAcademica> atividadesAcademicas;
 
 	
-	
-	public Curriculo(Long id, String nome, Endereco endereco, Date dataNascimento, String numeroCelular, String email, String cargo,
-			List<Formacao> formacao, List<Habilidade> habilidades,
-			List<ExperienciaProfissional> trajetoriaProfissional, List<AtividadeAcademica> atividadesAcademicas)
-	{
+	public Curriculo(Long id, String nome, Endereco endereco, Date dataNascimento, String numeroCelular, String email,
+			String cargo, Set<Formacao> formacao, Set<Habilidade> habilidades,
+			Set<ExperienciaProfissional> trajetoriaProfissional, Set<AtividadeAcademica> atividadesAcademicas) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -62,7 +65,7 @@ public class Curriculo
 		this.trajetoriaProfissional = trajetoriaProfissional;
 		this.atividadesAcademicas = atividadesAcademicas;
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -183,67 +186,35 @@ public class Curriculo
 		this.cargo = cargo;
 	}
 
-	/**
-	 * @return the habilidades
-	 */
-	public List<Habilidade> getHabilidades()
-	{
-		return habilidades;
-	}
-
-	/**
-	 * @param habilidades the habilidades to set
-	 */
-	public void setHabilidades(List<Habilidade> habilidades)
-	{
-		this.habilidades = habilidades;
-	}
-
-	/**
-	 * @return the trajetoriaProfissional
-	 */
-	public List<ExperienciaProfissional> getTrajetoriaProfissional()
-	{
-		return trajetoriaProfissional;
-	}
-
-	/**
-	 * @param trajetoriaProfissional the trajetoriaProfissional to set
-	 */
-	public void setTrajetoriaProfissional(List<ExperienciaProfissional> trajetoriaProfissional)
-	{
-		this.trajetoriaProfissional = trajetoriaProfissional;
-	}
-
-	/**
-	 * @return the atividadesAcademicas
-	 */
-	public List<AtividadeAcademica> getAtividadesAcademicas()
-	{
-		return atividadesAcademicas;
-	}
-
-	/**
-	 * @param atividadesAcademicas the atividadesAcademicas to set
-	 */
-	public void setAtividadesAcademicas(List<AtividadeAcademica> atividadesAcademicas)
-	{
-		this.atividadesAcademicas = atividadesAcademicas;
-	}
-
-	/**
-	 * @return the formacao
-	 */
-	public List<Formacao> getFormacao()
-	{
+	public Set<Formacao> getFormacao() {
 		return formacao;
 	}
 
-	/**
-	 * @param formacao the formacao to set
-	 */
-	public void setFormacao(List<Formacao> formacao)
-	{
+	public void setFormacao(Set<Formacao> formacao) {
 		this.formacao = formacao;
+	}
+
+	public Set<Habilidade> getHabilidades() {
+		return habilidades;
+	}
+
+	public void setHabilidades(Set<Habilidade> habilidades) {
+		this.habilidades = habilidades;
+	}
+
+	public Set<ExperienciaProfissional> getTrajetoriaProfissional() {
+		return trajetoriaProfissional;
+	}
+
+	public void setTrajetoriaProfissional(Set<ExperienciaProfissional> trajetoriaProfissional) {
+		this.trajetoriaProfissional = trajetoriaProfissional;
+	}
+
+	public Set<AtividadeAcademica> getAtividadesAcademicas() {
+		return atividadesAcademicas;
+	}
+
+	public void setAtividadesAcademicas(Set<AtividadeAcademica> atividadesAcademicas) {
+		this.atividadesAcademicas = atividadesAcademicas;
 	}
 }
