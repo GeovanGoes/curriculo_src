@@ -1,18 +1,18 @@
 
 INSERT INTO endereco (id, rua, estado, cidade, cep) VALUES (1, 'Rua josé dias da costa', 'SP', 'São Paulo', '05661-060');
-INSERT INTO curriculo (id, nome, data_nascimento, numero_celular, email, endereco_id, cargo) VALUES (1, 'Geovan da Silva Goes', '1992-02-15', '(11) 98976-2229', 'geovansilvagoes@gmail.com', 1, 'Programador');
+INSERT INTO curriculo (id, nome, data_nascimento, numero_celular, email, endereco_id, cargo) VALUES (1, 'Geovan Goes', '1992-02-15', '(11) 98976-2229', 'geovansilvagoes@gmail.com', 1, 'Programador');
 
 
 INSERT INTO tipo_formacao (id, descricao) VALUES (1, 'Formação Acadêmica');
 INSERT INTO tipo_formacao (id, descricao) VALUES (2, 'Formação Complementar');
 
-INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso) VALUES (1, 'SENAC', '', 1, 2015, 1, 'Tecnologia em Análise e Desenvolvimento de Sistemas');
-INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso) VALUES (2, 'ETEC - Guaracy Silveira', '', 1, 2013, 1, 'Técnico em Eletrônica');
+INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso, curriculo_id) VALUES (1, 'SENAC', '', 1, 2015, 1, 'Tecnologia em Análise e Desenvolvimento de Sistemas', 1);
+INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso, curriculo_id) VALUES (2, 'ETEC - Guaracy Silveira', '', 1, 2013, 1, 'Técnico em Eletrônica', 1);
 
 
-INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso) VALUES (3, 'SENAC', '', 1, 2010, 2, 'Técnico - Gestão em Vendas');
-INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso) VALUES (4, 'ESPRO', '', 1, 2009, 2, 'Técnicas Bancárias');
-INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso) VALUES (5, 'AOB', '', 1, 2007, 2, 'Gestão Pessoal e Empresarial');
+INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso, curriculo_id) VALUES (3, 'SENAC', '', 1, 2010, 2, 'Técnico - Gestão em Vendas', 1);
+INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso, curriculo_id) VALUES (4, 'ESPRO', '', 1, 2009, 2, 'Técnicas Bancárias', 1);
+INSERT INTO formacao (id, nome_instituicao, descricao_instituicao, is_concluido, ano_conlusao, tipo_formacao_id, nome_curso, curriculo_id) VALUES (5, 'AOB', '', 1, 2007, 2, 'Gestão Pessoal e Empresarial', 1);
 
 INSERT INTO tipo_habilidade (id, titulo) VALUES (1, 'Linguagens e Conceitos');
 INSERT INTO tipo_habilidade (id, titulo) VALUES (2, 'Frameworks, Bibliotecas, Padrões e Sistemas Operacionais');
