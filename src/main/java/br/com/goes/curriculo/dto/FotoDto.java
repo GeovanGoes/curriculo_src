@@ -24,6 +24,15 @@ public class FotoDto {
 		this.titulo = titulo;
 		this.encodedFile = encodedFile;
 	}
+	
+	public FotoDto() {
+	}
+	
+	public FotoDto(Foto foto) {
+		this.titulo = foto.getTitulo();
+		this.encodedFile = foto.getEncodedFile();
+	}
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -44,5 +53,8 @@ public class FotoDto {
 	public static List<Foto> toFotoList(List<FotoDto> dtos){
 		return dtos.stream().map(dto -> dto.toFoto()).collect(Collectors.toList());
 	}
-
+	
+	public static List<FotoDto> toFotoDtoList(List<Foto> fotos){
+		return fotos.stream().map(foto -> new FotoDto(foto)).collect(Collectors.toList());
+	}
 }

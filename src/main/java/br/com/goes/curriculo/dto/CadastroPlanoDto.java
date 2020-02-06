@@ -16,6 +16,16 @@ public class CadastroPlanoDto {
 	private String description;
 	
 	private List<FotoDto> fotos;
+	
+	public CadastroPlanoDto() {
+	}
+	
+	public CadastroPlanoDto(String title, String description, List<FotoDto> fotos) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.fotos = fotos;
+	}
 
 	public String getTitle() {
 		return title;

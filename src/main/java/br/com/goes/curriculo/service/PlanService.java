@@ -1,5 +1,9 @@
 package br.com.goes.curriculo.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +22,13 @@ public class PlanService {
 		Plan plano = dto.toPlano();
 		plano = repository.save(plano);
 		return plano;
+	}
+
+	public List<Plan> getAll() {
+		List<Plan> plans = new ArrayList<Plan>();
+		Iterable<Plan> findAll = this.repository.findAll();
+		findAll.forEach(plan -> plans.add(plan));
+		return plans;
 	}
 
 	

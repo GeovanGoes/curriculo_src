@@ -1,9 +1,12 @@
 package br.com.goes.curriculo.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Foto {
 
 	@Id
@@ -38,5 +41,13 @@ public class Foto {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+
+	public String getEncodedFile() {
+		return encodedFile;
+	}
+
+	public void setEncodedFile(String encodedFile) {
+		this.encodedFile = encodedFile;
 	}
 }

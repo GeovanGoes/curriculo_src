@@ -1,5 +1,7 @@
 package br.com.goes.curriculo.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.goes.curriculo.dto.CadastroPlanoDto;
+import br.com.goes.curriculo.dto.PlanoDto;
 import br.com.goes.curriculo.model.Plan;
 import br.com.goes.curriculo.service.PlanService;
 
@@ -29,7 +32,7 @@ public class PlanningController {
 	{
 		Plan plano = service.create(dto);
 		if (plano == null)
-			return ResponseEntity.ok(plano);
+			return ResponseEntity.ok(PlanoDto.toDto(plano));
 		else
 			return ResponseEntity.badRequest().build();
 	}
@@ -52,8 +55,13 @@ public class PlanningController {
 	}
 	
 	@GetMapping
-	public void getAll() {
+	public ResponseEntity<?> getAll() {
+		List<Plan> plans = this.service.getAll();
 		
+		if (plans != null && plans.size() > 0)
+			return ResponseEntity.ok(plans);
+		else
+			return ResponseEntity.badRequest().build();
 	}
 	
 }

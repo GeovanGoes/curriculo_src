@@ -21,7 +21,7 @@ public class CurriculoApplication
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/curriculo/**").allowedOrigins("*");
+				registry.addMapping("/**").allowedOrigins("*");
 			}
 		};
 	}
