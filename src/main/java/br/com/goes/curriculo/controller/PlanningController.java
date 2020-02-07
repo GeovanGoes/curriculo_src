@@ -5,11 +5,13 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,12 +29,12 @@ public class PlanningController {
 	@Autowired
 	private PlanService service;
 	
-	@PostMapping
-	public ResponseEntity<?> create(@Valid @RequestPart(value = "plano",required = true) CadastroPlanoDto dto)
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> create(@Valid @RequestBody(required = true) CadastroPlanoDto dto)
 	{
 		Plan plano = service.create(dto);
-		if (plano == null)
-			return ResponseEntity.ok(PlanoDto.toDto(plano));
+		if (plano != null)
+			return ResponseEntity.ok(dto);
 		else
 			return ResponseEntity.badRequest().build();
 	}
